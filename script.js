@@ -1,21 +1,50 @@
 // declare and initialize global variables
+  var canvas;
+
+  var canvasWidth = 500;
+
+  var canvasHeight = 400;
+
+  var clearbutton;
+
+  var slider;
+
+  var spread;
 
 /*
  * setup()
  */
+function setup(){
+  canvas = createCanvas(canvasWidth,canvasHeight);
+  canvas.parent("canvas-area");
+
+  canvas.mousePressed(drawEllipse);
+  
+  button =select("#clear-button");
+  
+  button.mousePressed(setup);
+
+  slider=select("#slider");
+
+  slider.input(updateSpread);
+
+  updateSpread();
+  
+  background(101, 104, 124);
 
 
-/*
- * drawEllipse()
- */
+}
+
+function drawEllipse(){
+fill("#ffeeff");
+ellipse(mouseX,mouseY, spread, spread);
+}
+
+ function updateSpread(){
+  spread= slider.value();
 
 
-/*
- * updateSpread()
- * This function simply sets the spread variable to the value of the slider.
- * For example, if the slider is at 75, the spread will be set to 75 as well.
- */
-
+}
 
  /*
   * drawSplatter()
@@ -28,3 +57,15 @@
   *  x = random value between mouseX - spread and mouseX + spread
   *  y = random value between mouseY - spread and mouseY + spread
   */
+
+function drawSplatter(){
+}
+
+
+
+
+
+
+
+
+
